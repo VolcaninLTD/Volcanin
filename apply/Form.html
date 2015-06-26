@@ -1,0 +1,208 @@
+<html>
+    <head>
+        <title>Apply to Volcanin</title>
+        <link rel="stylesheet" href="./bootstrap.css" />
+        <style>
+            #step2, #step3, #ifnetwork, #notenoughsubscribers {
+                display: none;
+            }
+    		
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="logo"></div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                                                    <form action="send_form_email.php" method="post">
+                        <div id="step1" class="first current">
+                            <div class="form-group ">
+                                <input type="text" class="form-control input-lg" placeholder="Full Name" name="name" id="name" value="" />
+                            </div>
+                            <div class="form-group ">
+                                <input type="text" class="form-control input-lg" placeholder="Email" name="email" id="email" autocomplete="off" value="" required />
+                                        </div>
+                            <div class="form-group ">
+                                <input type="text" style="display: none;"  class="form-control input-lg" placeholder="Repeat Email" autocomplete="off" name="email_again" id="email_again" value="" />
+                            </div>
+                            <div class="input-group ">
+                                <span class="input-group-addon">youtube.com/user/</span>
+                                <input type="text" class="alphanumericOnly form-control input-lg" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9_-]/g, '')" placeholder="Channel Username or ID (UC...)" name="channel" id="channel" value="" />
+                        		
+                        	</div>                        </div>
+                        <div id="step2">
+                            <div class="form-group">
+                                <b>Your channel metrics</b><br>
+                                <p class="text-muted">For this next section, please refer to your channel analytics.</p>
+                            </div>
+                            <hr>
+                            <div class="form-group ">
+                                <input type="number" class="form-control input-lg" placeholder="Views this month" onkeypress="return blockNonNumbers(this, event, true, false);" min="0" name="views" id="views" value="" >
+                                <span class="help-block">You can view your monthly views on YouTube Analytics <a href="https://www.youtube.com/analytics?o=U#dt=nm,fs=16267,fe=16296,fr=lw-001;r=views,fcr=0,rpm=t,rpg=7,rpa=a,rps=7,rpd=4,rpr=d,rpp=0,rpgr=0" target="_blank">(click here)</a>.
+                                    
+                                </span>
+                            </div>
+                            <div class="form-group ">
+                                <input type="number" class="form-control input-lg" placeholder="Total subscribers" onkeypress="return blockNonNumbers(this, event, true, false);" min="0" name="subscribers" id="subscribers" value="" >
+                            <div id="notenoughsubscribers">
+                                        <div class="alert alert-warning"><strong>Warning!</strong> You have less than 1000 subscribers, which does not meet our minimum requirements. It is rare that someone with under 1000 subscribers will be accepted. If you think that you are an exceptional case please continue and we will review your channel.                                        
+										  </div>
+                                    </div>
+							</div>
+                            <div class="form-group">
+                                <label style="color: gray;">
+                                    <input type="checkbox" name="anotheryt" id="anotheryt" > Check this if you are already a member of a YouTube network
+                                </label>
+                            </div>
+                            <div class="form-group" id="ifnetwork">
+                                <input type="text" class="form-control input-lg" placeholder="Name of other network" name="nameotheryt" id="nameotheryt" value="" >
+                                <span class="help-block"><b>Warning</b> - You will need to get released from your current network before you gain full access to all of the Volcanin Partner features.</span>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control input-lg" type="area" rows="3" name="channels" id="channels" placeholder="Please list any other channels you have here (Secondary YouTube, Twitch, ...)"></textarea>
+                            </div>
+                        </div>
+                        <div id="step3" class="last">
+                            
+                           
+                            <div class="form-group">
+                                <b>Final Details</b><br>
+                                <p class="text-muted">A couple more things and you're good to go!</p>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <input type="text" class="form-control input-lg" placeholder="Skype (Recommended)" name="skype" id="skype" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control input-lg" placeholder="Referrer" name="referrer" id="referrer" value="" />
+                                <span class="help-block">Please enter your referrer's name, if applicable (the one who told you about the network).</span>
+                            </div>
+                      
+							<br/>
+                            <input type="submit" id="sendapp" value="Submit" class="btn btn-lg btn-primary btn-block"/>
+                        </div>
+                    </form>
+                                    </div>
+                <div class="panel-footer text-center">
+                                        <button class="btn btn-primary" id="prev" disabled="disabled">Prev</button>
+                    <button class="btn btn-primary" id="next">Next</button>
+                                    </div>
+            </div>
+            <script src="./jquery-latest.min.js"
+            type="text/javascript"></script>
+            <script>
+                $('#email').keyup(function() {
+                    if($(this).val()=='') {
+                        document.getElementById('email_again').style.display = 'none';
+                    } else {
+                        document.getElementById('email_again').style.display = 'block';
+                    }
+                });
+                
+    $("#name").keypress(function(event){
+        var inputValue = event.charCode;
+        if((inputValue > 47 && inputValue < 58) && (inputValue != 32)){
+            event.preventDefault();
+        }
+    });
+    
+    function blockNonNumbers(obj, e, allowDecimal, allowNegative)
+    {
+        var key;
+        var isCtrl = false;
+        var keychar;
+        var reg;
+        
+        if(window.event) {
+            key = e.keyCode;
+            isCtrl = window.event.ctrlKey
+        }
+        else if(e.which) {
+            key = e.which;
+            isCtrl = e.ctrlKey;
+        }
+        
+        if (isNaN(key)) return true;
+        
+        keychar = String.fromCharCode(key);	
+        if (key == 8 || isCtrl)
+        {
+            return true;
+        }
+        
+        reg = /\d/;
+        var isFirstN = allowNegative ? keychar == '-' && obj.value.indexOf('-') == -1 : false;
+        var isFirstD = allowDecimal ? keychar == '.' && obj.value.indexOf('.') == -1 : false;
+        
+        return isFirstN || isFirstD || reg.test(keychar);
+    }
+    $("#subscribers").change(function(){
+        if(parseInt(this.value) < 995){
+            document.getElementById('notenoughsubscribers').style.display = 'block';
+        } else {
+            document.getElementById('notenoughsubscribers').style.display = 'none';
+        }
+    })
+    
+    $('#anotheryt').click(function() {
+        $('#ifnetwork')[this.checked ? "show" : "hide"]();
+    });
+    
+    function showMe (box) {
+        var chboxs = document.getElementsByName("c1");
+        var vis = "none";
+        for(var i=0;i<chboxs.length;i++) { 
+            if(chboxs[i].checked){
+                vis = "block";
+                break;
+            }
+        }
+        document.getElementById(box).style.display = vis;
+    }
+    
+$('#next').click(function() {
+    $('.current').removeClass('current').hide()
+            .next().show().addClass('current');
+    if ($('.current').hasClass('last')) {
+        $('#next').attr('disabled', true);
+    }
+    $('#prev').attr('disabled', null);
+    });
+    
+$('#prev').click(function() {
+    $('.current').removeClass('current').hide()
+            .prev().show().addClass('current');
+    if ($('.current').hasClass('first')) {
+        $('#prev').attr('disabled', true);
+    }
+    $('#next').attr('disabled', null);
+    });
+
+$(document).ready(function(){
+    $('#sendapp').click(function(e) {
+        $(this).val('Please Wait...'); 
+        document.getElementById("sendapp").className = "btn btn-lg btn-warning btn-block";
+  });
+});
+$('.alphanumericOnly').keypress(function(e){
+    var key = e.which;
+    return ((key >= 48 && key <= 57) || (key >= 65 && key <= 90) || (key >= 95 && key <= 122));
+});
+                </script>
+        </div>
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-64556454-1']);
+  _gaq.push(['_setDomainName', 'volcanin.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </body>
+</html>

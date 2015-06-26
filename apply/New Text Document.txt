@@ -1,0 +1,32 @@
+
+<html>
+    <head>
+        <title>Apply to Paragon</title>
+        <link rel="stylesheet" href="resources/css/bootstrap.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="logo"></div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-12 text-center">
+                        <br>
+                        <b>Thank you for applying to Paragon!</b><br><br>
+
+                        Your application will be reviewed shortly. Please allow us up to 48 hours to get back to you via email!<br><br>
+
+                        In the meantime, keep on making some awesome videos!<br><br>
+
+                        <b>See you soon!</b><br>
+                        <p class="text-muted">The Paragon Staff Team</p>
+                    </div>
+
+                </div>
+                <div class="panel-footer text-center">
+                </div>
+            </div>
+            
+        </div>
+    </body>
+</html>
+<!-- Created by TunkDesign.com for Paragon.yt -->

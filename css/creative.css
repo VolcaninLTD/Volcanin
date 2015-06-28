@@ -482,3 +482,4 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: #222;
 }
+.topbannerlogo { position: relative; top: -17px; }
